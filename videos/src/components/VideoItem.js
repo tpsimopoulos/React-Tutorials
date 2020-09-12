@@ -3,12 +3,11 @@ import './css/VideoItem.css'
 
 
 const VideoItem = (props) => {
-    const { snippet, description } = props.video;
-
+    const { snippet } = props.video;
 
     return (
         <div onClick={() => props.onVideoSelect(props.video)} className="video-item item">
-            <img className="ui image" alt={description} src={snippet.thumbnails.default.url} />
+            <img className="ui image" alt={snippet.title} src={snippet.thumbnails.default.url} />
             <div className="content">
                 <div className="header">{snippet.title}</div>
             </div>
