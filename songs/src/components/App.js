@@ -1,8 +1,20 @@
 import React from 'react';
+import SongList from './SongList';
+import SongDetail from './SongDetail';
 
 function App() {
   return (
-    <div></div>
+    <div className="ui grid container">
+      <div className="ui row">
+        <div className="column eight wide">
+          <SongList />
+
+        </div>
+        <div className="column eight wide">
+          <SongDetail />
+        </div>
+      </div>
+    </div>
   );
 }
 
