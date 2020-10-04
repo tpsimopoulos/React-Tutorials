@@ -8,7 +8,7 @@ import _ from 'lodash';
 export default (state = [], action) => {
     switch (action.type) {
         case FETCH_STREAM:
-            return { ...state, [action.payload.id]: action.payload };  // use key interpolation to set new object's key as id assigned by json-server api
+            return { ...state, [action.payload.id]: action.payload };  // create new object with key equal to action.payload.id and value equal to entire payload
         case CREATE_STREAM:
             return { ...state, [action.payload.id]: action.payload };
         case EDIT_STREAM:
@@ -22,5 +22,3 @@ export default (state = [], action) => {
     }
 }
 
-// if you create multiple streams then you will have a state 
-// object with multiple streams hence the spread operator

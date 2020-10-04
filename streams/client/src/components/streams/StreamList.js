@@ -9,18 +9,27 @@ class StreamList extends React.Component {
     }
 
     renderAdmin(stream) {
-        if (stream.userId === this.props.currentUserId) {   // if the current users userId is the same as the userId that created the tream
+        if (stream.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    { /* If below buttons are clicked, a GET request will be sent to the edit endpoint with the users userId as a variable */}
-                    <Link to={`/streams/edit/${stream.userId}`} className="ui button primary">Edit</Link>
-                    <Link to={`/streams/edit/${stream.userId}`} className="ui button primary">Delete</Link>
+                    { /* If below buttons are clicked, a GET request will be 
+                    sent to the edit endpoint with the users userId as a variable */}
+                    <Link
+                        to={`/streams/edit/${stream.id}`}
+                        className="ui button primary">Edit</Link>
+                    <Link
+                        to={`/streams/edit/${stream.id}`}
+                        className="ui button negative">Delete</Link>
                 </div>
             );
         }
     }
 
-    renderCreate() { // if user is signed in and button is clicked, takes user to endpoint where they can create a new stream
+    renderCreate() {
+        /* 
+            if user is signed in and button is clicked, 
+            takes user to endpoint where they can create a new stream
+         */
         if (this.props.isSignedIn) {
             return (
                 <div style={{ textAlign: 'right' }}>
@@ -59,7 +68,7 @@ class StreamList extends React.Component {
 };
 const mapStateToProps = (state) => {
     return {
-        streams: Object.values(state.streams), // turn object of objects into list of objects
+        streams: Object.values(state.streams),
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     }
